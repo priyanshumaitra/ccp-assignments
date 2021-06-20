@@ -3,5 +3,5 @@ using namespace std;
 int main()
 {
     int sum = 6;
-    cout << "hello world " << sum;
+    cout << "hello world! " << sum;
 }
