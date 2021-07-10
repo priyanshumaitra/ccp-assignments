@@ -1,38 +1,53 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Distance{
-	private:
-		int feet, inch;
-	public:
-		void set_distance(){
-			cout<<"Enter measurement in feet: ";
-			cin>>feet;
-			cout<<"Enter measurement in inches: ";
-			cin>>inch;
-		}
-		void get_distance(){
-			cout<<"Distance in feet is: "<<feet<<" ft."<<"and inches is: "<<inch<<" in."<<endl;
-		}
-		void add(Distance d1, Distance d2){
-			feet = d1.feet + d2.feet;
-			inch = d1.inch + d2.inch;
-			feet = feet + (inch / 12);
-			inch = inch % 12;
-		}
-		void sub(Distance d1, Distance d2){
-			feet = d1.feet - d2.feet;
-			inch = d1.inch - d2.inch;
-			feet = feet - (inch / 12);
-			inch = inch % 12;
-		}
+
+class Distance
+{
+private:
+  int foot, inch;
+
+public:
+  Distance add(Distance &obj)
+  {
+    Distance res;
+    res.inch = inch + obj.inch;
+    res.foot = foot + obj.foot + (res.inch / 12);
+    res.inch %= 12;
+    return res;
+  }
+  Distance subtract(Distance &obj)
+  {
+    Distance res;
+    int t = ((foot * 12) + inch) - ((obj.foot * 12) + obj.inch);
+    res.foot = t / 12;
+    res.inch = t % 12;
+    return res;
+  }
+
+  void getdata()
+  {
+    cin >> foot >> inch;
+  }
+  void display()
+  {
+    cout << foot << " Foot " << inch << " Inch" << endl;
+  }
 };
-int main(){
-	Distance d1, d2, d3, d4;
-	d1.set_distance();
-	d2.set_distance();
-	d3.add(d1, d2);
-	d4.sub(d1, d2);
-	d3.get_distance();
-	d4.get_distance();
-	return 0;
+
+int main()
+{
+  Distance d1, d2, sum, diff;
+  d1.getdata();
+  d1.display();
+  d2.getdata();
+  d2.display();
+
+  cout << "d1 + d2 = ";
+  sum = d1.add(d2);
+  sum.display();
+  cout << "d1 - d2 = ";
+  diff = d1.subtract(d2);
+  diff.display();
+
+  return 0;
 }

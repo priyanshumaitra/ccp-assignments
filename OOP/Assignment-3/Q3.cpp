@@ -1,73 +1,73 @@
-// C++ program to Add two complex numbers
-#include<bits/stdc++.h>
+// Create a class complex as above. Now add, subtract and multiply on two
+// objects of complex type
+// i) using objects as function argument,
+// ii) returning object from function.
+
+#include <iostream>
 using namespace std;
 
-// User Defined Complex class
-class Complex {
+class Complex
+{
+private:
+  int real, imaginary;
 
-	// Declaring variables
-	public:
-		int real, imaginary;
+public:
+  // Addition
+  Complex add(Complex const &obj)
+  {
+    Complex res;
+    res.real = real + obj.real;
+    res.imaginary = imaginary + obj.imaginary;
+    return res;
+  }
+  // Substraction
+  Complex sub(Complex const &obj)
+  {
+    Complex res;
+    res.real = real - obj.real;
+    res.imaginary = imaginary - obj.imaginary;
+    return res;
+  }
+  // Multiplication
+  Complex multiply(Complex const &obj)
+  {
+    Complex res;
+    res.real = (real * obj.real) - (imaginary * obj.imaginary);
+    res.imaginary = (real * obj.imaginary) + (imaginary * obj.real);
+    return res;
+  }
 
-	// Empty Constructor
-	Complex()
-	{
-	}
+  void getdata()
+  {
+    cin >> real >> imaginary;
+  }
 
-	// Constructor to accept
-	// real and imaginary part
-	Complex(int tempReal, int tempImaginary)
-	{
-		real = tempReal;
-		imaginary = tempImaginary;
-	}
-
-	// Defining addComp() method
-	// for adding two complex number
-	Complex addComp(Complex C1, Complex C2)
-	{
-		// creating temporary variable
-		Complex temp;
-
-		// adding real part of complex numbers
-		temp.real = C1.real + C2.real;
-
-		// adding Imaginary part of complex numbers
-		temp.imaginary = C1.imaginary + C2.imaginary;
-
-		// returning the sum
-		return temp;
-	}
+  void display()
+  {
+    cout << real << " + " << imaginary << "i" << endl;
+  }
 };
 
-// Main Class
 int main()
 {
+  Complex c1, c2, sum, diff, product;
 
-	// First Complex number
-	Complex C1(3, 2);
+  c1.getdata();
+  cout << "c1 = ";
+  c1.display();
+  c2.getdata();
+  cout << "c2 = ";
+  c2.display();
 
-	// printing first complex number
-	cout<<"Complex number 1 : "<< C1.real
-				<< " + i"<< C1.imaginary<<endl;
+  cout << "sum = ";
+  sum = c1.add(c2);
+  sum.display();
+  cout << "diff = ";
+  diff = c1.sub(c2);
+  diff.display();
+  cout << "product = ";
+  product = c1.multiply(c2);
+  product.display();
 
-	// Second Complex number
-	Complex C2(9, 5);
-
-	// printing second complex number
-	cout<<"Complex number 2 : "<< C2.real
-				<< " + i"<< C2.imaginary<<endl;
-
-	// for Storing the sum
-	Complex C3;
-
-	// calling addComp() method
-	C3 = C3.addComp(C1, C2);
-
-	// printing the sum
-	cout<<"Sum of complex number : "
-					<< C3.real << " + i"
-					<< C3.imaginary;
+  return 0;
 }
-
-// This code is contributed by chitranayal
