@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Contact - CCP</title>
+<style>
+   body{
+       background: #000;
+   }
+    h1{
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        color: rgb(224, 217, 217);
+        font-size: 50px;
+    }
+    p{
+        padding-top: 10px;
+        color: #777;
+    }
+    h2{
+        color: rgb(224, 217, 217);
+    }
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: white);
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.container {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background-color: #413e3e;
+    padding: 50px;
+}
+</style>
+</head>
+<body>
+
+<h1>Contact Us</h1>
+
+<div class="container">
+  <form action="/action_page.php">
+    <h2>
+        <label>First Name</label>
+    </h2>
+    <input type="text" name="firstname" placeholder="Your frst name..">
+
+    <h2>
+        <label>Last Name</label>
+    </h2>
+    <input type="text" name="lastname" placeholder="Your last name..">
+    <h2>
+        <label>Email</label>
+    </h2>
+    <input type="email" name="lastname" placeholder="Your e-mail address..">
+
+    <h2>
+        <label>Message</label>
+    </h2>
+    <textarea name="subject" placeholder="Type your message.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<h2>Work in progress...</h2>
+</body>
+</html>
